@@ -63,10 +63,7 @@ A simple voltage divider is used to monitor the battery charge. A bypass capacit
 4. Open src/main.cpp and locate the BATTERY_LOW and BATTERY_FULL definitions. Adjust these values (in millivolts) based on your battery's chemistry.
 5. Connect your ESP32-S3 Mini via USB.
 6. Build and upload the firmware using PlatformIO toolbar. 
-7. If all parts are connected properly, the in-built  RGB should start flashing indicating the status of the hardware:
-> - Red: power management is enabled
-> - Green: external crystal is detected and will be used during sleep mode
-> - Blue: program is going start
+7. If all parts are connected properly, the in-built  RGB should start flashing indicating the status of the hardware. Red indicates PM is enabled, green means the external cyrstal is detected, and blue means the program is going to start.
 8. Download the app to start interacting with it.
 
 # Debugging
@@ -88,15 +85,15 @@ The table below details the hardware's typical current draw.
 | Transmitting | Driving IR LED | 13.5 |
 
 ## Power Management Strategies
-1. The system utilizes Automatic Light-Sleep and Dynamic Frequency Scaling (DFS). Under DFS, the APB clock dynamically scales between 40 MHz and 80 MHz:
+- The system utilizes Automatic Light-Sleep and Dynamic Frequency Scaling (DFS). Under DFS, the APB clock dynamically scales between 40 MHz and 80 MHz:
   - 40 MHz: The minimum frequency required for BLE operations
   - 80 MHz: The default frequency for the RMT (Remote Control) channels
-2. To extend light-sleep duration, the BLE is configured with the following parameters: 
+- To extend light-sleep duration, the BLE is configured with the following parameters: 
   - Connection Interval: 200 ms (reduces radio duty cycle)
   - Advertising Interval: 1.25 s (lowers standby power)
   - TX Power Level: 0 dBm (mitigates peak current spikes)
-3. An external 32.768 kHz crystal provides high-precision timing for the BLE. This reduces window widening—the extra time the radio must remain active to compensate for clock drift—thereby lowering average power consumption compared to the internal RTC oscillator. 
-4. The FreeRTOS primitives are used to synchronize tasks and guide the power management unit to decide the appropriate time to go to sleep. This eliminates the need for unnecessary pooling which would otherwise extend active-mode duration.
+- An external 32.768 kHz crystal provides high-precision timing for the BLE. This reduces window widening—the extra time the radio must remain active to compensate for clock drift—thereby lowering average power consumption compared to the internal RTC oscillator. 
+- The FreeRTOS primitives are used to synchronize tasks and guide the power management unit to decide the appropriate time to go to sleep. This eliminates the need for unnecessary pooling which would otherwise extend active-mode duration.
 
 ## Software Architecture
 A simple software architecture is shown below. At its core, the NimBLE stack serves as the primary communication bridge between the hardware and the Android device. It is important to note that the firmware is only limited to a single client.
