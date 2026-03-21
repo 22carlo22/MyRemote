@@ -21,6 +21,9 @@ Use the following schematics to assemble the hardware.
 The board used in this project is a Waveshare ESP32-S3 Mini Development Board. It is compact and offers better power efficiency compared to the standard ESP32 DevKit. While the firmware is not strictly limited to this model, you can use other boards if power consumption is not a primary concern. If you choose a different hardware platform, please keep the following in mind:
 - You must configure your own sdkconfig based on the provided defconfig
 - You may need to comment out the DEBUG_RGB definition if your specific board does not include a built-in RGB LED
-
+<img width="300" height="220" alt="circuit (2)" src="https://github.com/user-attachments/assets/a7afb4dd-8296-45ec-b2dc-f88e9f1809c8" />
 The board can be powered using a voltage source between 3.7V and 6V. Exceeding the maximum rating will obviously damage the voltage regulator over time. Conversely, dropping below the minimum rating may cause unexpected brownouts, due to the 300mA peak current associated with radio operations, particularly during RF recalibration.
+
+## External Clock (Optional)
+
 
