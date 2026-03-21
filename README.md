@@ -1,6 +1,8 @@
 # MyRemote
 Ever wanted to use your phone as a universal remote? Well, this project provides a battery-friendly ESP32 solution that connects your mobile device to any IR-controlled appliance!
 
+![GIF_20260321_051751_633](https://github.com/user-attachments/assets/039b162b-5b58-47bb-ac35-48e94e3a9bda)
+
 # Requirements
 This project consists of two core components:
 - Android Application: Requires a device running Android 7.0 or higher.
