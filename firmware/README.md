@@ -1,5 +1,9 @@
 # Table of Contents
 - [Requirements](#Requirements)
+- [Assembly](#Assembly)
+- [Firmware Installation](#Firmware)
+- [Debugging](#Debugging)
+- [For Nerds](#For)
 
 # Requirements
 | Component | Specification | Quantity | Purpose |
@@ -72,7 +76,7 @@ The firmware utilizes the ESP-IDF Logging library. To diagnose hardware issues, 
 3. The board is now ready to receive the new firmware. Click Upload.
 4. Verify that monitor_speed = 115200 is set in your platformio.ini file. Click the Serial Monitor and now you are ready to debug.
 
-# For Nerds:
+# For Nerds
 ## Power Consumption
 The table below details the hardware's typical current draw. 
 
