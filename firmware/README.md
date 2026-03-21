@@ -29,8 +29,7 @@ The board used in this project is a Waveshare ESP32-S3 Mini Development Board. I
 
 The board can be powered using a voltage source between 3.7V and 6V. Exceeding the maximum rating will obviously damage the voltage regulator over time. Conversely, dropping below the minimum rating may cause unexpected brownouts, due to the 300mA peak current associated with radio operations, particularly during RF recalibration.
 
-<img width="300" height="220" alt="circuit (2)" src="https://github.com/user-attachments/assets/79cc7609-ecb0-4db8-b956-06e351502c1e" />
-
+<img width="300" height="220" alt="circuit (7)" src="https://github.com/user-attachments/assets/8dbd6ed4-52ee-44ff-b113-bd1ff8f351d1" />
 
 ## External Clock (Optional)
 Incorporating an external RTC crystal is optional and primarily serves to save power. If ommited, the ESP32-S3 will automatically fall back to the internal RTC RC oscillator. However, some boards, such as the standard ESP32 DevKit, do not support using the internal RTC RC oscillator to clock the Bluetooth during sleep modes. For those platforms, this circuit is mandatory if you wish to maximize power savings.
