@@ -1,9 +1,9 @@
 # Table of Contents
 - [Requirements](#Requirements)
 - [Assembly](#Assembly)
-- [Firmware Installation](#Firmware Installation)
+- [Firmware Installation](#Firmware_Installation)
 - [Debugging](#Debugging)
-- [For Nerds](#For Nerds)
+- [For Nerds](#For_Nerds)
 
 # Requirements
 | Component | Specification | Quantity | Purpose |
