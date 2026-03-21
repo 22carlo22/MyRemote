@@ -83,7 +83,7 @@ The table below details the hardware's typical current draw.
 | Receiving | Listening for IR signal | 45.7 |
 | Transmitting | Driving IR LED | 13.5 |
 
-##Power Management Strategies
+## Power Management Strategies
 1. The system utilizes Automatic Light-Sleep and Dynamic Frequency Scaling (DFS). Under DFS, the APB clock dynamically scales between 40 MHz and 80 MHz:
   - 40 MHz: The minimum frequency required for BLE operations
   - 80 MHz: The default frequency for the RMT (Remote Control) channels
