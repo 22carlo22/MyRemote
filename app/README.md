@@ -9,7 +9,8 @@
 This guide covers how to install the mobile application required to communicate with the hardware, followed by a quick tutorial on how to use it.
 
 # Requirement
-Minimum Android Version: Android 7.0.
+Minimum Android Version: Android 7.0
+
 Not sure what version you have? Go to Settings > About Phone > Android Version
 
 # App Installation
