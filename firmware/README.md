@@ -56,7 +56,7 @@ A simple voltage divider is used to monitor the battery charge. A bypass capacit
 
 <img width="260" height="260" alt="circuit (6)" src="https://github.com/user-attachments/assets/070e9648-ad17-42b4-8721-d6afa0f6ece0" />
 
-# Firmware Installation
+# Firmware_Installation
 1. Install VS Code and the PlatformIO IDE Extension.
 2. Clone this repository. 
 3. Open VS Code and select Open Folder, navigating to the /firmware directory. 
@@ -76,7 +76,7 @@ The firmware utilizes the ESP-IDF Logging library. To diagnose hardware issues, 
 3. The board is now ready to receive the new firmware. Click Upload.
 4. Verify that monitor_speed = 115200 is set in your platformio.ini file. Click the Serial Monitor and now you are ready to debug.
 
-# For Nerds
+# For_Nerds
 ## Power Consumption
 The table below details the hardware's typical current draw. 
 
