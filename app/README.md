@@ -24,6 +24,7 @@ If you want to install the app directly without building the source code, follow
 # Tutorial
 Follow these steps to set up your IR Remote and begin capturing signals:
 1. Tap the Bluetooth icon and select the device named "MyRemote" from the discovery list. Note This is a one-time setup; the app will automatically reconnect to this device in the future.
+![GIF_20260321_042605_078](https://github.com/user-attachments/assets/930730e2-7d61-487c-9aed-34b4818fbcff)
 2. Tap the Add (+) icon to open the configuration page, then select the Listen icon.
 3. Point your physical remote at the ESP32 hardware and press the button you wish to save. The app will automatically populate the data section with the received signal.
 4. (Optional) Adjust the button style. Once satisfied, tap the Add icon to save.
