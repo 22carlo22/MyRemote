@@ -64,9 +64,9 @@ A simple voltage divider is used to monitor the battery charge. A bypass capacit
 5. Connect your ESP32-S3 Mini via USB.
 6. Build and upload the firmware using PlatformIO toolbar. 
 7. If all parts are connected properly, the in-built  RGB should start flashing indicating the status of the hardware:
-  - Red: power management is enabled
-  - Green: external crystal is detected and will be used during sleep mode
-  - Blue: program is going start
+> - Red: power management is enabled
+> - Green: external crystal is detected and will be used during sleep mode
+> - Blue: program is going start
 8. Download the app to start interacting with it.
 
 # Debugging
