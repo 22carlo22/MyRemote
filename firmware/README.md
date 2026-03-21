@@ -39,6 +39,7 @@ It is critical to ground the load capacitors as close as possible to the GND pin
 
 ## Transmitter
 The IR LED is driven via a low-side switch connected directly to the voltage source rather than the 3.3V pin. This configuration ensures a brighter, more reliable IR signal while isolating high-frequency switching noise from the board's sensitive 3.3V rail.
+
 <img width="280" height="240" alt="circuit (4)" src="https://github.com/user-attachments/assets/2fe23a9a-303e-4986-9e4f-79fba2fb8c01" />
 
 ## Receiver
@@ -48,6 +49,7 @@ The IR receiver must be powered by the 3.3V pin. Powering it directly to the vol
 
 ## Battery Monitoring
 A simple voltage divider is used to monitor the battery charge. A bypass capacitor is included to filter out high-frequency noise that can affect the accuracy of the ADC channel, especially when the radio is active.
+
 <img width="260" height="260" alt="circuit (6)" src="https://github.com/user-attachments/assets/070e9648-ad17-42b4-8721-d6afa0f6ece0" />
 
 # Firmware Installation
