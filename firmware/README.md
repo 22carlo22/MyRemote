@@ -5,6 +5,11 @@
 - [Debugging](#Debugging)
 - [For Nerds](#For-Nerds)
 
+# Overview
+This guide provides step-by-step instructions for assembling the hardware and flashing the firmware. It also includes a technical breakdown of the software architecture and the power-saving strategies implemented to optimize battery life.
+
+![PXL_20260321_033313951~2](https://github.com/user-attachments/assets/5d11ae62-261a-4c0d-8cbf-2f92c97db558)
+
 # Requirements
 | Component | Specification | Quantity | Purpose |
 | :--- | :--- | :--- | :--- |
