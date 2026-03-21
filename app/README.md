@@ -8,6 +8,8 @@
 # Overview
 This guide covers how to install the mobile application required to communicate with the hardware, followed by a quick tutorial on how to use it.
 
+<img width="1080" height="2400" alt="Screenshot_20260321-015320" src="https://github.com/user-attachments/assets/a7326739-c17e-403e-92b4-dc293d8e188c" />
+
 # Requirement
 Minimum Android Version: Android 7.0
 
