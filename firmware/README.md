@@ -43,6 +43,7 @@ The IR LED is driven via a low-side switch connected directly to the voltage sou
 
 ## Receiver
 The IR receiver must be powered by the 3.3V pin. Powering it directly to the voltage source would cause the output signal to exceed the maximum voltage rating of the ESP32-S3's GPIO pins, which can only tolerate up to 3.3V. 
+
 <img width="280" height="140" alt="circuit (5)" src="https://github.com/user-attachments/assets/4bfffc9b-1a44-4a17-9d23-c76de44950eb" />
 
 ## Battery Monitoring
