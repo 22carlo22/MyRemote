@@ -9,7 +9,7 @@
 This guide covers how to install the mobile application required to communicate with the hardware, followed by a quick tutorial on how to use it.
 
 # Requirement
-Minimum Android Version: Android 7.0 
+Minimum Android Version: Android 7.0.
 Not sure what version you have? Go to Settings > About Phone > Android Version
 
 # App Installation
@@ -28,7 +28,7 @@ Follow these steps to set up your IR Remote and begin capturing signals:
 6. Simply tap the button to transmit the IR signal. If you ever need to change the style or position, tap the Dotted (Menu) icon.
 
 # Security & Privacy
-- Minimal Permissions: The app only requests permissions essential for its core functionality (refer to the AndroidManifest.xml):
+- The app only requests permissions essential for its core functionality (refer to the AndroidManifest.xml):
   - Bluetooth/Nearby Devices: Required to communicate with your ESP32 hardware.
   - Location (Legacy Android only): Required only by older Android versions to perform Bluetooth scanning. No GPS data is ever recorded or shared.
-- No Data Collection: This app operates entirely locally. It does not have internet permissions, meaning your remote codes and device information never leave your phone.
+- This app operates entirely locally. It does not have internet permissions, meaning your remote codes and device information never leave your phone.
