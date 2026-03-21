@@ -47,7 +47,7 @@ The IR receiver must be powered by the 3.3V pin. Powering it directly to the vol
 
 <img width="280" height="140" alt="circuit (5)" src="https://github.com/user-attachments/assets/4bfffc9b-1a44-4a17-9d23-c76de44950eb" />
 
-## Battery Monitoring
+## Monitoring Battery
 A simple voltage divider is used to monitor the battery charge. A bypass capacitor is included to filter out high-frequency noise that can affect the accuracy of the ADC channel, especially when the radio is active.
 
 <img width="260" height="260" alt="circuit (6)" src="https://github.com/user-attachments/assets/070e9648-ad17-42b4-8721-d6afa0f6ece0" />
@@ -73,9 +73,43 @@ The firmware utilizes the ESP-IDF Logging library. To diagnose hardware issues, 
 4. Verify that monitor_speed = 115200 is set in your platformio.ini file. Click the Serial Monitor and now you are ready to debug.
 
 # For Nerds:
-## Power Specification
+## Power Consumption
+The table below details the hardware's typical current draw. 
 
+| System State | Description | Avg. Current (mA) |
+| :--- | :--- | :--- |
+| Standby | BLE is advertising | 1.2 |
+| Connected | Client connected to the BLE | 4.8 |
+| Receiving | Listening for IR signal | 45.7 |
+| Transmitting | Driving IR LED | 13.5 |
 
+##Power Management Strategies
+1. The system utilizes Automatic Light-Sleep and Dynamic Frequency Scaling (DFS). Under DFS, the APB clock dynamically scales between 40 MHz and 80 MHz:
+  - 40 MHz: The minimum frequency required for BLE operations
+  - 80 MHz: The default frequency for the RMT (Remote Control) channels
+2. To extend light-sleep duration, the BLE is configured with the following parameters: 
+  - Connection Interval: 200 ms (reduces radio duty cycle)
+  - Advertising Interval: 1.25 s (lowers standby power)
+  - TX Power Level: 0 dBm (mitigates peak current spikes)
+3. An external 32.768 kHz crystal provides high-precision timing for the BLE. This reduces window widening—the extra time the radio must remain active to compensate for clock drift—thereby lowering average power consumption compared to the internal RTC oscillator. 
+4. The FreeRTOS primitives are used to synchronize tasks and guide the power management unit to decide the appropriate time to go to sleep. This eliminates the need for unnecessary pooling which would otherwise extend active-mode duration.
+
+## Software Architecture
+A simple software architecture is shown below. At its core, the NimBLE stack serves as the primary communication bridge between the hardware and the Android device. It is important to note that the firmware is only limited to a single client.
+
+<img width="551" height="221" alt="Firmware block diagram drawio" src="https://github.com/user-attachments/assets/c801d974-5d2b-4696-8f22-85db14cba90f" />
+
+### IR Signal Transmission
+To transmit an infrared signal, the process begins when the connected phone sends data through the BLE interface. A NimBLE callback function receives this data and places it into a queue specifically for the irTransmitTask. This task then retrieves the data and delivers it to the RMT TX channel, which drives the physical IR transmitter.
+
+### IR Signal Reception
+The reception logic is demand-driven, requiring the phone to first send a request indicating it wants to listen for a signal. This request triggers a NimBLE callback that unblocks the irListenTask, which subsequently activates the RMT receiver channel for a 10-second window. If a signal is detected during this time, it is sent back to the phone via NimBLE; otherwise, the task returns to a sleep state unless it is "kicked" again by the user.
+
+### Monitoring Battery 
+Battery health is monitored by the BatteryTask, which only activates once a phone has successfully connected. The task collects multiple samples from an ADC channel connected to a voltage divider and processes them through a low-pass filter to generate a stable approximation of the battery's lifespan. These results are periodically transmitted to the phone, and the task automatically blocks itself if the phone disconnects.
+
+### Connection 
+To ensure the connection remains stable beyond the basic Bluetooth link, a HeartbeatTask acts as an application-level watchdog. While NimBLE handles the radio connection, the phone must also periodically notify the firmware to prove the mobile app is still responsive and not "frozen". If this notification is not received within a set timeframe, the HeartbeatTask assumes the phone is unresponsive and forces a disconnection via NimBLE.
 
 
 
