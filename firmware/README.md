@@ -33,7 +33,7 @@ The board can be powered using a voltage source between 3.7V and 6V. Exceeding t
 
 
 ## External Clock (Optional)
-Incorporating an external RTC crystal is optional and primarily serves to save power. If ommited, the ESP32-S3 will automatically fall back to the internal RTC RC oscillator. However, some boards, such as the standard ESP32 DevKit, do not support using the internal RTC RC oscillator to clock the Bluetooth during sleep modes. For those platforms, this circuit is mandatory if you wish to maximize power savings
+Incorporating an external RTC crystal is optional and primarily serves to save power. If ommited, the ESP32-S3 will automatically fall back to the internal RTC RC oscillator. However, some boards, such as the standard ESP32 DevKit, do not support using the internal RTC RC oscillator to clock the Bluetooth during sleep modes. For those platforms, this circuit is mandatory if you wish to maximize power savings.
 
 <img width="260" height="240" alt="circuit (3)" src="https://github.com/user-attachments/assets/b3248855-fe2c-4a35-bca4-48150edcc550" />
 
