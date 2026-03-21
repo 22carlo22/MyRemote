@@ -37,3 +37,43 @@ It is critical to ground the load capacitors as close as possible to the GND pin
 
 *Note: While the ESP32-S3 integrates the necessary circuitry internally, other boards may require an additional biasing resistor to stabilize the oscillation; always check your specific hardware documentation.*
 
+## Transmitter
+The IR LED is driven via a low-side switch connected directly to the voltage source rather than the 3.3V pin. This configuration ensures a brighter, more reliable IR signal while isolating high-frequency switching noise from the board's sensitive 3.3V rail.
+<img width="280" height="240" alt="circuit (4)" src="https://github.com/user-attachments/assets/2fe23a9a-303e-4986-9e4f-79fba2fb8c01" />
+
+## Receiver
+The IR receiver must be powered by the 3.3V pin. Powering it directly to the voltage source would cause the output signal to exceed the maximum voltage rating of the ESP32-S3's GPIO pins, which can only tolerate up to 3.3V. 
+<img width="280" height="140" alt="circuit (5)" src="https://github.com/user-attachments/assets/4bfffc9b-1a44-4a17-9d23-c76de44950eb" />
+
+## Battery Monitoring
+A simple voltage divider is used to monitor the battery charge. A bypass capacitor is included to filter out high-frequency noise that can affect the accuracy of the ADC channel, especially when the radio is active.
+<img width="260" height="260" alt="circuit (6)" src="https://github.com/user-attachments/assets/070e9648-ad17-42b4-8721-d6afa0f6ece0" />
+
+# Firmware Installation
+1. Install VS Code and the PlatformIO IDE Extension.
+2. Clone this repository. 
+3. Open VS Code and select Open Folder, navigating to the /firmware directory. 
+4. Open src/main.cpp and locate the BATTERY_LOW and BATTERY_FULL definitions. Adjust these values (in millivolts) based on your battery's chemistry.
+5. Connect your ESP32-S3 Mini via USB.
+6. Build and upload the firmware using PlatformIO toolbar. 
+7. If all parts are connected properly, the in-built  RGB should start flashing indicating the status of the hardware:
+  a. Red: power management is enabled
+  b. Green: external crystal is detected and will be used during sleep mode
+  c. Blue: program is going start
+8. Download the app to start interacting with it.
+
+# Debugging
+The firmware utilizes the ESP-IDF Logging library. To diagnose hardware issues, do the following:
+1. Open src/main.cpp and comment out AUTO_SLEEP definition. This disables the power management, allowing the serial connection to be stable.
+2. Force the chip into Download Mode by pressing the reset button while holding the boot button.
+3. The board is now ready to receive the new firmware. Click Upload.
+4. Verify that monitor_speed = 115200 is set in your platformio.ini file. Click the Serial Monitor and now you are ready to debug.
+
+# For Nerds:
+## Power Specification
+
+
+
+
+
+
