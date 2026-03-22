@@ -14,7 +14,7 @@ This guide provides step-by-step instructions for assembling the hardware and fl
 # Requirements
 | Component | Specification | Quantity | Purpose |
 | :--- | :--- | :--- | :--- |
-| **Microcontroller** | Waveshare ESP32-S3 Mini Development Board | 1 | Core processing |
+| **Microcontroller** | ESP32-S3 DevKitM | 1 | Core processing |
 | **Transmitter** | 940nm IR LED | 1 | Emitting IR signals |
 | **Receiver** | TSOP4838 | 1 | Capturing IR signals |
 | **Switching Transistor** | NPN | 1 | High-current driver for IR LED |
