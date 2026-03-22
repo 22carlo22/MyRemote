@@ -3,7 +3,7 @@
 - [Requirement](#Requirement)
 - [App Installation](#App-Installation)
 - [Tutorial](#Tutorial)
-- [Security & Privacy](#Security-and-Privacy)
+- [Security and Privacy](#Security-and-Privacy)
 
 # Overview
 This guide covers how to install the mobile application required to communicate with the hardware, followed by a quick tutorial on how to use it.
