@@ -69,7 +69,7 @@ The following steps assumes that you already have the VS Code and the PlatformIO
 3. Locate the BATTERY_LOW and BATTERY_FULL definitions. Adjust these values (in millivolts) based on your battery's chemistry.
 4. Connect your ESP32-S3 Mini via USB, and then upload the firmware using PlatformIO toolbar. 
 5. If all parts are connected properly, the in-built  RGB should start flashing indicating the status of the hardware. Red indicates PM is enabled, green means the external cyrstal is detected, and blue means the program is going to start.
-6. Go through the [app guide](app/README.md) to start interacting with it.
+6. Go through the [app guide](../app/README.md) to start interacting with it.
 
 # Debugging
 The firmware utilizes the ESP-IDF Logging library. To diagnose hardware issues, do the following:
