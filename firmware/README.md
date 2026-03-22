@@ -62,7 +62,7 @@ A simple voltage divider is used to monitor the battery charge. A bypass capacit
 <img width="260" height="260" alt="circuit (6)" src="https://github.com/user-attachments/assets/070e9648-ad17-42b4-8721-d6afa0f6ece0" />
 
 # Firmware Installation
-The following steps assumes that you already have the VS Code and the PlatformIO IDE Extension setup.
+The following steps assume that you already have the VS Code and the PlatformIO IDE Extension setup.
 
 1. Download the [IR-firmware folder](./IR-firmware).
 2. Open it with VS Code and navigate to the [src/main.cpp](./IR-firmware/src/main.cpp) directory. 
