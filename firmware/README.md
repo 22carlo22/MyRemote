@@ -84,10 +84,10 @@ The table below details the hardware's typical current draw.
 
 | System State | Description | Avg. Current (mA) |
 | :--- | :--- | :--- |
-| Standby | BLE is advertising | 1.2 |
-| Connected | Client connected to the BLE | 4.8 |
-| Receiving | Listening for IR signal | 45.7 |
-| Transmitting | Driving IR LED | 13.5 |
+| Standby | BLE is advertising | 3.1 |
+| Connected | Client connected to the BLE | 5.3 |
+| Transmitting | Driving IR LED | 13.6 |
+| Receiving | Listening for IR signal | 53.0 |
 
 ## Power Management Strategies
 - The system utilizes Automatic Light-Sleep and Dynamic Frequency Scaling (DFS). Under DFS, the APB clock dynamically scales between 40 MHz and 80 MHz:
@@ -95,7 +95,7 @@ The table below details the hardware's typical current draw.
   - 80 MHz: The default frequency for the RMT (Remote Control) channels
 - To extend light-sleep duration, the BLE is configured with the following parameters: 
   - Connection Interval: 200 ms (reduces radio duty cycle)
-  - Advertising Interval: 1.25 s (lowers standby power)
+  - Advertising Interval: 0.5 s (lowers standby power)
   - TX Power Level: 0 dBm (mitigates peak current spikes)
 - An external 32.768 kHz crystal provides high-precision timing for the BLE. This reduces window widening—the extra time the radio must remain active to compensate for clock drift—thereby lowering average power consumption compared to the internal RTC oscillator. 
 - The FreeRTOS primitives are used to synchronize tasks and guide the power management unit to decide the appropriate time to go to sleep. This eliminates the need for unnecessary pooling which would otherwise extend active-mode duration.
