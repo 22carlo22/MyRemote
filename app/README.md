@@ -23,7 +23,7 @@ If you want to install the app directly without building the source code, follow
 
 # Tutorial
 Follow these steps to set up your IR Remote and begin capturing signals:
-1. Tap the Bluetooth icon and select the device named "MyRemote" from the discovery list. Note This is a one-time setup; the app will automatically reconnect to this device in the future.
+1. Tap the Bluetooth icon and select the device named "MyRemote" from the discovery list. Note: This is a one-time setup; the app will automatically reconnect to this device in the future.
 
 ![GIF_20260321_042605_078](https://github.com/user-attachments/assets/930730e2-7d61-487c-9aed-34b4818fbcff)
 
