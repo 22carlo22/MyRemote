@@ -17,8 +17,8 @@ Not sure what version you have? Go to Settings > About Phone > Android Version
 
 # App Installation
 If you want to install the app directly without building the source code, follow these steps:
-1. Navigate to the /release folder in this repository.
-2. Download the app-release.apk file directly to your Android device.
+
+1. Download the [app-release.apk](./remote-app/app/release/app-release.apk) directly to your Android device.
 3. Upon first launch, ensure you press "Allow" when prompted for Nearby Devices (or Bluetooth/Location). These permissions are required for the app to scan for and connect to the hardware.
 
 # Tutorial
@@ -44,7 +44,7 @@ Follow these steps to set up your IR Remote and begin capturing signals:
 ![GIF_20260321_044116_242](https://github.com/user-attachments/assets/3aa5a863-a1ef-408f-8051-254df06d27f1)
 
 # Security and Privacy
-- The app only requests permissions essential for its core functionality (refer to the AndroidManifest.xml):
+- The app only requests permissions essential for its core functionality (refer to the [AndroidManifest.xml](./remote-app/app/src/main/AndroidManifest.xml):
   - Bluetooth/Nearby Devices: Required to communicate with your ESP32 hardware.
   - Location (Legacy Android only): Required only by older Android versions to perform Bluetooth scanning. No GPS data is ever recorded or shared.
 - This app operates entirely locally. It does not have internet permissions, meaning your remote codes and device information never leave your phone.
