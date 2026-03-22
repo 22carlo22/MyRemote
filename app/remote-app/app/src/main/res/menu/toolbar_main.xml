@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+        android:id="@+id/cancel"
+        android:icon="@drawable/outline_close_24"
+        android:title="Cancel"
+        android:iconTint="?attr/colorOnSurface"
+        app:showAsAction="always" /> <!-- or "always" -->
+
+
+    <item
+        android:id="@+id/add"
+        android:title="Add"
+        android:icon="@drawable/outline_add_2_24"
+        android:iconTint="?attr/colorOnSurface"
+        app:showAsAction="always"/> <!-- or "always" -->
+
+    <item
+        android:id="@+id/connect"
+        android:title="Connect"
+        android:icon="@drawable/baseline_bluetooth_24"
+        android:iconTint="?attr/colorOnSurface"
+        app:showAsAction="always"/> <!-- or "always" -->
+
+    <item
+        android:id="@+id/move"
+        android:title="Move"
+        app:showAsAction="never"/> <!-- or "always" -->
+
+    <item
+        android:id="@+id/edit"
+        android:title="Edit"
+        app:showAsAction="never"/> <!-- or "always" -->
+</menu>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_icon_delete"
+        android:icon="@drawable/baseline_delete_outline_24"
+        android:title="Delete"
+        android:iconTint="?attr/colorOnSurface"
+        app:showAsAction="always" /> <!-- or "always" -->
+
+    <item
+        android:id="@+id/action_icon_save"
+        android:icon="@drawable/outline_save_24"
+        android:title="Save"
+        android:iconTint="?attr/colorOnSurface"
+        app:showAsAction="always" /> <!-- or "always" -->
+
+    <item
+        android:id="@+id/action_icon_add"
+        android:icon="@drawable/outline_add_2_24"
+        android:title="Add"
+        app:showAsAction="always"/> <!-- or "always" -->
+</menu>
