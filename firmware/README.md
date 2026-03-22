@@ -29,7 +29,7 @@ This guide provides step-by-step instructions for assembling the hardware and fl
 Use the following schematics to assemble the hardware.
 ## Board
 The board used in this project is a ESP32-S3 devkitm, specifically Waveshare ESP32-S3 Mini Development Board. It is compact and offers better power efficiency compared to the standard ESP32 DevKit. While the firmware is not strictly limited to this model, you can use other boards if power consumption is not a primary concern. If you choose a different hardware platform, please keep the following in mind:
-- You must configure your own platform.ini and sdkconfig based on the provided defconfig
+- You must configure your own platform.ini and sdkconfig based on the provided [defconfig](./IR-firmware/defconfig)
 - You may need to comment out the DEBUG_RGB definition if your specific board does not include a built-in RGB LED
 - Review and update the GPIO assignments of your chosen board
 
@@ -62,18 +62,18 @@ A simple voltage divider is used to monitor the battery charge. A bypass capacit
 <img width="260" height="260" alt="circuit (6)" src="https://github.com/user-attachments/assets/070e9648-ad17-42b4-8721-d6afa0f6ece0" />
 
 # Firmware Installation
-1. Install VS Code and the PlatformIO IDE Extension.
-2. Clone this repository. 
-3. Open VS Code and navigate to the /firmware directory. 
-4. Open src/main.cpp and locate the BATTERY_LOW and BATTERY_FULL definitions. Adjust these values (in millivolts) based on your battery's chemistry.
-5. Connect your ESP32-S3 Mini via USB.
-6. Build and upload the firmware using PlatformIO toolbar. 
-7. If all parts are connected properly, the in-built  RGB should start flashing indicating the status of the hardware. Red indicates PM is enabled, green means the external cyrstal is detected, and blue means the program is going to start.
-8. Download the app to start interacting with it.
+The following steps assumes that you already have the VS Code and the PlatformIO IDE Extension setup.
+
+1. Download the [IR-firmware folder](./IR-firmware).
+2. Open it with VS Code and navigate to the [src/main.cpp](./IR-firmware/src/main.cpp) directory. 
+3. Locate the BATTERY_LOW and BATTERY_FULL definitions. Adjust these values (in millivolts) based on your battery's chemistry.
+4. Connect your ESP32-S3 Mini via USB, and then upload the firmware using PlatformIO toolbar. 
+5. If all parts are connected properly, the in-built  RGB should start flashing indicating the status of the hardware. Red indicates PM is enabled, green means the external cyrstal is detected, and blue means the program is going to start.
+6. Go through the [app guide](app/README.md) to start interacting with it.
 
 # Debugging
 The firmware utilizes the ESP-IDF Logging library. To diagnose hardware issues, do the following:
-1. Open src/main.cpp and comment out AUTO_SLEEP definition. This disables the power management, allowing the serial connection to be stable.
+1. Open the main.cpp and comment out AUTO_SLEEP definition. This disables the power management, allowing the serial connection to be stable.
 2. Force the chip into Download Mode by pressing the reset button while holding the boot button.
 3. The board is now ready to receive the new firmware. Click Upload.
 4. Verify that monitor_speed = 115200 is set in your platformio.ini file. Click the Serial Monitor and now you are ready to debug.
