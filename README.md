@@ -9,7 +9,7 @@ This project consists of two core components:
 - Hardware: Built using standard, over-the-counter components. See [hardware guide](./firmware/README.md/#Requirements) for a full list of parts.
 
 # Getting Started
-1. Assemble the hardware and upload the firmware using the [harwdware guide](./firmware/README.md).
+1. Assemble the hardware and upload the firmware using the [hardware guide](./firmware/README.md).
 2. After verifying the hardware, install the Android application following the  [app guide](./app/README.md).
 
 # Community & Support
